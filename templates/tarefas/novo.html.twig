@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nova Tarefa{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <h2 class="mb-5">Nova Tarefa</h2>
+        <a href="{{ url("index") }}">Voltar</a>
+        <form method="POST" action="https://localhost:8000/tarefas/store">
+            
+            <input type="hidden" name="_token" value="{{ csrf_token('cadastro_tarefas') }}">
+
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Título</label>
+                <input type="text" class="form-control" id="title" name="title" placeholder="Título da Tarefa">
+            </div>
+    
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Data</label>
+                <input type="date" class="form-control" id="data" name="data" placeholder="Data">
+            </div>
+    
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Descrição</label>
+                <textarea class="form-control" name="descricao" id="descricao" rows="3"></textarea>
+            </div>
+
+                
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

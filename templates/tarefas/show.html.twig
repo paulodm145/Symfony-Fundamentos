@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Visualizar Tarefa{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <h2>Detalhes da Tarefa {{ tarefa.id }}</h2>
+        <p><strong>Título: </strong>{{ tarefa.title }}</p>
+        <p><strong>Descrição: </strong>{{ tarefa.descricao }}</p>
+        <p><strong>Data: </strong>{{ tarefa.data|date('d-m-Y')  }}</p>
+        <a href="{{ url("index") }}">Voltar</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editar Tarefa{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <h2 class="mb-5">Editar Tarefa: {{ tarefa.id }}</h2>
+        <a href="{{ url("index") }}">Voltar</a>
+        <form method="POST" action="{{ url( 'tarefas_edit', {id: tarefa.id} ) }}">
+            <div class="mb-3">
+                <label for="title" class="form-label">Título</label>
+                <input type="text" value="{{ tarefa.title }}" class="form-control" id="title" name="title" placeholder="Título da Tarefa">
+            </div>
+    
+            <div class="mb-3">
+                <label for="data" class="form-label">Data</label>
+                <input type="date" class="form-control" id="data" value="{{ tarefa.data|date('d-m-Y')  }}" name="data" placeholder="Data">
+            </div>
+    
+            <div class="mb-3">
+                <label for="descricao" class="form-label">Descrição</label>
+                <textarea class="form-control" name="descricao" id="descricao" rows="3">{{ tarefa.descricao }}</textarea>
+            </div>
+
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+

@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Lista de tarefas{% endblock %}
+
+{% block body %}
+
+<div class="container mt-5">
+    <h2 class="mb-5">Cadastro de Tarefas</h2>
+    <a class="btn btn-success" href="{{ url('tarefas_new') }}">Novo</a>
+    <a class="btn btn-info float-end" href="{{ url('tarefas') }}">Voltar</a>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Registro</th>
+            <th scope="col">Tarefa</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Data da Tarefa</th>
+            <th scope="col">Operações</th>
+          </tr>
+        </thead>
+        <tbody>
+    {% for tarefa in tarefas %}
+          <tr>
+            <th scope="row">#{{ tarefa.id }}</th>
+            <td>{{ tarefa.title }}</td>
+            <td>{{ tarefa.descricao }}</td>
+            <td>{{ tarefa.data|date('d-m-Y')  }}</td>
+            <td>
+              <div class="btn-group" role="group" aria-label="Basic example">
+                  <a href="{{ url( 'tarefas_show', {id: tarefa.id} ) }}" class="btn btn-warning">Visualizar</a>
+                  <a href="{{ url( 'tarefas_update', {id: tarefa.id} ) }}" class="btn btn-info">Editar</a>
+                  <a href="{{ url('tarefas_delete', {id: tarefa.id} ) }}" class="btn btn-danger" onclick="return confirm('Deseja Excluir ?')">Excluir</a>
+              </div>
+            </td>
+          </tr>
+    {% endfor %}
+        </tbody>
+      </table>
+    </div>
+{% endblock %}
+    
+
+
+
+

@@ -1,0 +1,24 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Estudo Symfony
+{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <h1>{{ escola }}</h1>
+
+{% if 5 > 2 %}
+    <p>5 é maior que dois</p>
+    {% else %}
+        <p>retorno do else</p>
+{% endif %}
+
+{% for curso in cursos %}
+    <li>{{ curso.name }}</li>
+{% endfor %}
+</div>
+
+{% endblock %}
+

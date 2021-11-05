@@ -1,0 +1,39 @@
+index:
+    path: /
+    controller: App\Controller\TarefasController::index
+
+teste:
+    path: /teste/{max}
+    controller: App\Controller\TesteController::index
+
+tarefas:
+    path: /tarefas
+    controller: App\Controller\TarefasController::index
+
+tarefas_show:
+    path: tarefas/show/{id}
+    controller: App\Controller\TarefasController::show
+
+# mostra o fomrulário de edição
+tarefas_update:
+    path: tarefas/update/{id}
+    controller:  App\Controller\TarefasController::update
+
+# aplica o update
+tarefas_edit:
+    path: tarefas/edit/{id}
+    controller:  App\Controller\TarefasController::edit
+
+tarefas_store:
+    path: /tarefas/store
+    controller: App\Controller\TarefasController::store
+    methods: [GET, POST]
+
+tarefas_new:
+    path: /tarefas/new
+    controller: App\Controller\TarefasController::new
+
+tarefas_delete:
+    path: /tarefas/delete/{id}
+    controller: App\Controller\TarefasController::delete
+    methods: [GET]
